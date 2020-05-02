@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kegiatan 1</title>
+</head>
+
+<body>
+    <fieldset>
+        <legend>Kegiatan 1</legend>
+        <form>
+            <br>
+            Nilai 1:<input type="number" placeholder="masukkan angka" name="angka1" id="angka1"><br>
+            Nilai 2:<input type="number" placeholder="masukkan angka" name="angka2" id="angka2">
+            <br><br>
+            Operasi :
+            <input type="radio" id="tambah" name="opr"><label for="tambah">tambah</label>
+            <input type="radio" id="kurang" name="opr"><label for="kurang">kurang</label>
+            <br><br>
+            <button type="button" name="proses" onclick="operation()">Proses</button>
+            <br>
+            <p id="result"></p>
+        </form>
+    </fieldset>
+    <script>
+        function operation() {
+            if (document.getElementById("tambah").checked) {
+                calculate('tambah');
+            } else {
+                calculate('kurang');
+            }
+        }
+
+        function calculate(action) {
+            var num1 = document.getElementById("angka1").value;
+            var num2 = document.getElementById("angka2").value;
+            var result;
+            switch (action) {
+                case 'tambah':
+                    result = parseInt(num1) + parseInt(num2);
+                    break;
+                case 'kurang':
+                    result = num1 - num2;
+                    break;
+            }
+            return document.getElementById("result").innerHTML = String("Hasilnya adalah : " + result);
+        }
+    </script>
+</body>
+
+</html>
